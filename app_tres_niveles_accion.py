@@ -113,7 +113,7 @@ if df_today.empty:
                 {"fecha": selected_date, "nivel": LEVEL_MAPPING["Micro (3‑b)"], "descripcion": t_micro2, "completada": False},
                 {"fecha": selected_date, "nivel": LEVEL_MAPPING["Micro (3‑c)"], "descripcion": t_micro3, "completada": False},
             ]
-            df_tasks.loc[len(df_tasks): len(df_tasks) + 5] = new_rows  # append six rows
+            df_tasks = pd.concat([df_tasks, pd.DataFrame(new_rows)], ignore_index=True)
             save_data(df_tasks)
             st.success("¡Tareas guardadas!")
             st.experimental_rerun()
