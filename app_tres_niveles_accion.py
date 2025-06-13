@@ -116,7 +116,7 @@ if df_today.empty:
             df_tasks = pd.concat([df_tasks, pd.DataFrame(new_rows)], ignore_index=True)
             save_data(df_tasks)
             st.success("¡Tareas guardadas!")
-            st.experimental_rerun()
+            st.rerun()
 else:
     # Mostrar tareas existentes con opción de marcar como completadas
     st.write("Marca las tareas completadas:")
